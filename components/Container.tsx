@@ -27,7 +27,7 @@ export default function Container({
   as: Element = "div",
   fullHeight = false,
 }: ContainerProps) {
-  const baseClasses = "w-full container-ds";
+  const baseClasses = "container-ds";
   const heightClass = fullHeight ? "min-h-screen" : "";
   const combinedClasses = `${baseClasses} ${heightClass} ${className}`.trim();
 

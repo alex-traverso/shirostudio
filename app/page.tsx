@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="pt-20 bg-amber-200">
+      <main className="pt-20">
         <HeroSection />
         <PilaresSection />
         <ServicesSection />

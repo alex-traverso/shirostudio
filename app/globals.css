@@ -127,31 +127,25 @@
   --line-height-5xl: 93px;
 
   /* --------------------------------------------------------------
-     GRID — Mobile (default: 4 cols · 16px gutter · 16px margin)
+     GRID — Mobile
      -------------------------------------------------------------- */
-  --grid-columns: 4;
-  --grid-gutter: 16px;
-  --grid-margin: 16px;
-  --grid-max-width: 100%;
+
+  --container-padding: 16px;
+  --container-max-width: 100%;
 }
 
-/* Tablet ≥ 768px — 8 cols · 24px gutter · 32px margin */
+/* Tablet ≥ 768px */
 @media (min-width: 768px) {
   :root {
-    --grid-columns: 8;
-    --grid-gutter: 24px;
-    --grid-margin: 32px;
-    --grid-max-width: 100%;
+    --container-padding: 32px;
   }
 }
 
-/* Desktop ≥ 1280px — 12 cols · 32px gutter · 75px margin · 1300px content */
+/* Desktop ≥ 1280px*/
 @media (min-width: 1280px) {
   :root {
-    --grid-columns: 12;
-    --grid-gutter: 32px;
-    --grid-margin: 75px;
-    --grid-max-width: 1300px;
+    --container-padding: 75px;
+    --container-max-width: 1300px;
   }
 }
 
@@ -298,14 +292,11 @@ body {
    CONTAINER & GRID UTILITIES
    ================================================================ */
 
-/* Standard responsive container — uses the grid variables above.
-   At desktop: 1300px content with 75px padding on each side.
-   Usage: <div class="container-ds"> ... </div>              */
 @utility container-ds {
   width: 100%;
+  max-width: 1300px;
   margin-inline: auto;
-  padding-inline: var(--grid-margin);
-  max-width: calc(var(--grid-max-width) + var(--grid-margin) * 2);
+  padding-inline: var(--container-padding); /* 16px / 32px / 75px */
 }
 
 /* Responsive padding utilities — auto-adjust with media queries */
