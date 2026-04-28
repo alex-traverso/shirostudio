@@ -1,32 +1,345 @@
 @import "tailwindcss";
 
+/* ================================================================
+   SHIRO STUDIO — DESIGN SYSTEM TOKENS
+   Source: Shiro Studio - Design System (Figma)
+   Collection: Color Pallette · Gap Scale · Radius · Shadows · Grid
+   ================================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --------------------------------------------------------------
+     COLORS — named exactly as in the Figma variable collection
+     -------------------------------------------------------------- */
+
+  /* Typography */
+  --typography\/text-100: #f4f3ee;
+  --typography\/text-200: #e9e8e0;
+  --typography\/text-300: #d1d0c9;
+  --typography\/text-400: #616161;
+  --typography\/text-500: #212121;
+
+  /* Background */
+  --background\/background-100: #212121;
+  --background\/background-200: #e9e8e0;
+  --background\/background-300: #f4f3ee;
+
+  /* Accent Color */
+  --accent-color\/main-accent-color: #e84911;
+  --accent-color\/hover-accent-color: #ff5a1f; /* confirm in Figma desktop */
+  --accent-color\/selected-accent-color: #c23d0e;
+  --accent-color\/disabled-accent-color: #ff9c7a; /* confirm in Figma desktop */
+
+  /* Semantic — Red / Danger */
+  --semantic\/semantic-red-danger-100: #fff1f1;
+  --semantic\/semantic-red-danger-200: #fecaca;
+  --semantic\/semantic-red-danger-300: #cd2b31;
+  --semantic\/semantic-red-danger-400: #991b1b;
+
+  /* Semantic — Green / Success */
+  --semantic\/semantic-green-success-100: #f0fdf4;
+  --semantic\/semantic-green-success-200: #bbf7d0;
+  --semantic\/semantic-green-success-300: #16a34a;
+  --semantic\/semantic-green-success-400: #166534;
+
+  /* Semantic — Orange / Warning */
+  --semantic\/semantic-orange-warning-100: #fff7ed;
+  --semantic\/semantic-orange-warning-200: #fed7aa;
+  --semantic\/semantic-orange-warning-300: #d97706;
+  --semantic\/semantic-orange-warning-400: #92400e;
+
+  /* --------------------------------------------------------------
+     GAP / SPACING SCALE
+     -------------------------------------------------------------- */
+  --gap-0: 0px;
+  --gap-2: 2px;
+  --gap-4: 4px;
+  --gap-6: 6px;
+  --gap-8: 8px;
+  --gap-10: 10px;
+  --gap-12: 12px;
+  --gap-14: 14px;
+  --gap-16: 16px;
+  --gap-20: 20px;
+  --gap-24: 24px;
+  --gap-30: 30px;
+  --gap-32: 32px;
+  --gap-36: 36px;
+  --gap-40: 40px;
+  --gap-48: 48px;
+  --gap-64: 64px;
+  --gap-80: 80px;
+  --gap-96: 96px;
+
+  /* --------------------------------------------------------------
+     BORDER RADIUS
+     -------------------------------------------------------------- */
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-10: 10px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-38: 38.5px;
+  --radius-full: 9999px;
+
+  /* --------------------------------------------------------------
+     SHADOWS
+     -------------------------------------------------------------- */
+  --shadow-xs: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  --shadow-sm:
+    0px 1px 2px 0px rgba(112, 113, 116, 0.06),
+    0px 1px 3px 0px rgba(112, 113, 116, 0.1);
+  --shadow-md:
+    0px 2px 4px -2px rgba(112, 113, 116, 0.06),
+    0px 4px 8px -2px rgba(112, 113, 116, 0.1);
+  --shadow-lg:
+    0px 4px 6px -2px rgba(112, 113, 116, 0.03),
+    0px 12px 16px -4px rgba(112, 113, 116, 0.08);
+  --shadow-xl:
+    0px 8px 8px -4px rgba(112, 113, 116, 0.04),
+    0px 20px 24px -4px rgba(112, 113, 116, 0.1);
+  --shadow-2xl: 0px 24px 48px -12px rgba(112, 113, 116, 0.18);
+  --shadow-3xl: 0px 32px 64px -12px rgba(112, 113, 116, 0.14);
+
+  /* --------------------------------------------------------------
+     TYPOGRAPHY SCALE
+     -------------------------------------------------------------- */
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 25px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 50px;
+  --font-size-5xl: 80px;
+
+  --line-height-sm: 16px;
+  --line-height-md: 20px;
+  --line-height-lg: 24px;
+  --line-height-xl: 29px;
+  --line-height-2xl: 30px;
+  --line-height-3xl: 40px;
+  --line-height-4xl: 48px;
+  --line-height-5xl: 93px;
+
+  /* --------------------------------------------------------------
+     GRID — Mobile (default: 4 cols · 16px gutter · 16px margin)
+     -------------------------------------------------------------- */
+  --grid-columns: 4;
+  --grid-gutter: 16px;
+  --grid-margin: 16px;
+  --grid-max-width: 100%;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* Tablet ≥ 768px — 8 cols · 24px gutter · 32px margin */
+@media (min-width: 768px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --grid-columns: 8;
+    --grid-gutter: 24px;
+    --grid-margin: 32px;
+    --grid-max-width: 100%;
   }
 }
 
-* {
+/* Desktop ≥ 1280px — 12 cols · 32px gutter · 75px margin · 1300px content */
+@media (min-width: 1280px) {
+  :root {
+    --grid-columns: 12;
+    --grid-gutter: 32px;
+    --grid-margin: 75px;
+    --grid-max-width: 1300px;
+  }
+}
+
+/* ================================================================
+   TAILWIND V4 THEME
+   Maps design-system tokens to Tailwind utility classes
+   ================================================================ */
+@theme inline {
+  /* Colors */
+  --color-text-100: var(--typography\/text-100);
+  --color-text-200: var(--typography\/text-200);
+  --color-text-300: var(--typography\/text-300);
+  --color-text-400: var(--typography\/text-400);
+  --color-text-500: var(--typography\/text-500);
+
+  --color-background-100: var(--background\/background-100);
+  --color-background-200: var(--background\/background-200);
+  --color-background-300: var(--background\/background-300);
+
+  --color-accent-main: var(--accent-color\/main-accent-color);
+  --color-accent-hover: var(--accent-color\/hover-accent-color);
+  --color-accent-selected: var(--accent-color\/selected-accent-color);
+  --color-accent-disabled: var(--accent-color\/disabled-accent-color);
+
+  --color-danger-100: var(--semantic\/semantic-red-danger-100);
+  --color-danger-200: var(--semantic\/semantic-red-danger-200);
+  --color-danger-300: var(--semantic\/semantic-red-danger-300);
+  --color-danger-400: var(--semantic\/semantic-red-danger-400);
+
+  --color-success-100: var(--semantic\/semantic-green-success-100);
+  --color-success-200: var(--semantic\/semantic-green-success-200);
+  --color-success-300: var(--semantic\/semantic-green-success-300);
+  --color-success-400: var(--semantic\/semantic-green-success-400);
+
+  --color-warning-100: var(--semantic\/semantic-orange-warning-100);
+  --color-warning-200: var(--semantic\/semantic-orange-warning-200);
+  --color-warning-300: var(--semantic\/semantic-orange-warning-300);
+  --color-warning-400: var(--semantic\/semantic-orange-warning-400);
+
+  /* Shadows */
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+  --shadow-3xl: var(--shadow-3xl);
+
+  /* Border radius */
+  --radius-sm: var(--radius-2);
+  --radius-md: var(--radius-4);
+  --radius-lg: var(--radius-6);
+  --radius-xl: var(--radius-8);
+  --radius-2xl: var(--radius-10);
+  --radius-3xl: var(--radius-12);
+  --radius-4xl: var(--radius-16);
+  --radius-5xl: var(--radius-20);
+  --radius-card: var(--radius-38);
+  --radius-full: var(--radius-full);
+}
+
+/* ================================================================
+   BASE STYLES
+   ================================================================ */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background\/background-300);
+  color: var(--typography\/text-500);
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================================================
+   TYPOGRAPHY UTILITIES
+   ================================================================ */
+
+/* --- Display --- */
+.text-display-hero {
+  font-family: var(--font-rokkitt), "Rokkitt", serif;
+  /* font-size: clamp(48px, 5.5vw, var(--font-size-5xl)); */
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1.16;
+  text-transform: uppercase;
+}
+
+.text-display-lg {
+  font-family: var(--font-rokkitt), "Rokkitt", serif;
+  font-size: clamp(36px, 3.5vw, var(--font-size-4xl));
+  font-weight: 700;
+  line-height: var(--line-height-4xl);
+  text-transform: uppercase;
+}
+
+/* --- Body --- */
+.text-body-xl-regular {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  line-height: var(--line-height-2xl);
+}
+
+.text-body-lg-semibold {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  line-height: var(--line-height-md);
+}
+
+.text-body-lg-regular {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: var(--line-height-md);
+}
+
+.text-body-md-bold {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  line-height: var(--line-height-3xl);
+}
+
+.text-body-sm-medium {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  line-height: var(--line-height-sm);
+}
+
+/* ================================================================
+   CONTAINER & GRID UTILITIES
+   ================================================================ */
+
+/* Standard responsive container — uses the grid variables above.
+   At desktop: 1300px content with 75px padding on each side.
+   Usage: <div class="container-ds"> ... </div>              */
+@utility container-ds {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--grid-margin);
+  max-width: calc(var(--grid-max-width) + var(--grid-margin) * 2);
+}
+
+/* Responsive padding utilities — auto-adjust with media queries */
+@utility px-grid {
+  padding-left: var(--grid-margin);
+  padding-right: var(--grid-margin);
+}
+
+@utility py-grid {
+  padding-top: var(--grid-margin);
+  padding-bottom: var(--grid-margin);
+}
+
+@utility p-grid {
+  padding: var(--grid-margin);
+}
+
+/* Responsive gap utility — matches gutter spacing */
+@utility gap-grid {
+  gap: var(--grid-gutter);
+}
+
+/* Full-bleed outer wrapper (1920px desktop canvas).
+   Usage: <section class="section-full"> ... </section>      */
+@utility section-full {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
+/* 12-col responsive grid — follows --grid-columns at each bp.
+   Usage: <div class="grid-ds"> <div class="col-span-6"> </div>  */
+@utility grid-ds {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  gap: var(--grid-gutter);
 }
