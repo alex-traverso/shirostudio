@@ -48,9 +48,9 @@ function ServiceItem({ title }: { title: string }) {
   );
 }
 
-export default function ServicesSection() {
+const ServicesSection = () => {
   return (
-    <section id="services" className="bg-background-100 py-[150px]">
+    <section id="services" className="bg-background-100 py-37.5">
       <Container as="div" className="flex flex-col gap-16">
         <div
           className="flex flex-col gap-2.5"
@@ -70,4 +70,5 @@ export default function ServicesSection() {
       </Container>
     </section>
   );
-}
+};
+export default ServicesSection;

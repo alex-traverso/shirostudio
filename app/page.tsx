@@ -1,10 +1,10 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import PilaresSection from "@/components/PilaresSection";
 import ServicesSection from "@/components/ServicesSection";
 import VisionMissionSection from "@/components/VisionMissionSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import PillarsSection from "@/components/PillarsSection";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <Navbar />
       <main className="pt-20">
         <HeroSection />
-        <PilaresSection />
+        <PillarsSection />
         <ServicesSection />
         <VisionMissionSection />
         <ContactSection />

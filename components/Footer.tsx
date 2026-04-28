@@ -77,7 +77,7 @@ const navLinks = [
   { href: "#contact", label: "Contacto" },
 ];
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="bg-background-100 py-12">
       <Container as="div" className="flex flex-col items-center gap-6">
@@ -152,4 +152,6 @@ export default function Footer() {
       </Container>
     </footer>
   );
-}
+};
+
+export default Footer;

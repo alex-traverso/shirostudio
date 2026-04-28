@@ -39,7 +39,7 @@ export default function Navbar() {
   return (
     <header
       id="navbar"
-      className="w-full flex justify-center items-center z-50 bg-background-300"
+      className="fixed top-0 right-0 w-full flex justify-center items-center z-50 bg-background-300"
     >
       <Container>
         <div className="h-20 flex items-center justify-between">
@@ -52,7 +52,7 @@ export default function Navbar() {
               <Image
                 src={logo}
                 alt="Shiro Studio Logo"
-                width={150}
+                width={120}
                 height={60}
               />
             </Link>
@@ -80,7 +80,7 @@ export default function Navbar() {
           {/* Nav */}
           <nav className="flex items-center gap-20">
             <Link
-              href="#about"
+              href="#us"
               className="text-body-lg-semibold text-text-500 hover:text-accent-main transition-colors"
             >
               Nosotros

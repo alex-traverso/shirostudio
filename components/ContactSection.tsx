@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Container from "@/components/Container";
 
-export default function ContactSection() {
+const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -96,4 +96,6 @@ export default function ContactSection() {
       </Container>
     </section>
   );
-}
+};
+
+export default ContactSection;

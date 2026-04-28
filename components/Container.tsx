@@ -4,14 +4,13 @@ interface ContainerProps {
   children: React.ReactNode;
   className?: string;
   as?: React.ElementType;
-  fullHeight?: boolean;
 }
 
 /**
  * Container Component
  *
- * Maneja automáticamente el padding horizontal basado en el grid system.
- * Usa media queries definidas en globals.css para ajustar:
+ * Automatically manages horizontal padding based on the grid system.
+ * Uses media queries defined in globals.css to adjust:
  * - Mobile: 16px padding
  * - Tablet (≥768px): 32px padding
  * - Desktop (≥1280px): 75px padding
@@ -21,15 +20,14 @@ interface ContainerProps {
  *   <h1>Contenido</h1>
  * </Container>
  */
-export default function Container({
+const Container = ({
   children,
   className = "",
   as: Element = "div",
-  fullHeight = false,
-}: ContainerProps) {
-  const baseClasses = "container-ds";
-  const heightClass = fullHeight ? "min-h-screen" : "";
-  const combinedClasses = `${baseClasses} ${heightClass} ${className}`.trim();
+}: ContainerProps) => {
+  return (
+    <Element className={`container-ds ${className}`.trim()}>{children}</Element>
+  );
+};
 
-  return <Element className={combinedClasses}>{children}</Element>;
-}
+export default Container;

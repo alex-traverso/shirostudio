@@ -3,7 +3,7 @@ import Container from "@/components/Container";
 const PHOTO_URL =
   "https://www.figma.com/api/mcp/asset/2714e4bb-dcd8-48d0-83bc-b0d319014c40";
 
-export default function VisionMissionSection() {
+const VisionMissionSection = () => {
   return (
     <section
       id="vision"
@@ -100,4 +100,5 @@ export default function VisionMissionSection() {
       </Container>
     </section>
   );
-}
+};
+export default VisionMissionSection;
