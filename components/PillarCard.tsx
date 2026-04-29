@@ -13,22 +13,10 @@ export default function PilarCard({ title, description }: PillarCardProps) {
       }}
     >
       <div className="w-46.5 flex flex-col">
-        <h3
-          className="font-bold text-[25px] leading-12.25 text-text-500 uppercase"
-          style={{
-            fontFamily: "var(--font-montserrat), Montserrat, sans-serif",
-          }}
-        >
+        <h3 className="font-bold text-[25px] leading-12.25 text-text-500 uppercase">
           {title}
         </h3>
-        <p
-          className="text-[18px] leading-7.25 text-text-500"
-          style={{
-            fontFamily: "var(--font-montserrat), Montserrat, sans-serif",
-          }}
-        >
-          {description}
-        </p>
+        <p className="text-[18px] leading-7.25 text-text-500">{description}</p>
       </div>
     </div>
   );

@@ -2,37 +2,83 @@
 
 import { useState } from "react";
 import Container from "@/components/Container";
+import FormField from "@/components/FormField";
+import { submitContactForm } from "@/app/actions/contact";
+import Button from "./shared/Button";
+import { contactSchema } from "@/app/lib/schemas/contact";
+
+type FormData = { name: string; email: string; message: string };
+type FormErrors = Partial<FormData>;
+
+function validate(data: FormData): FormErrors {
+  const result = contactSchema.safeParse(data);
+  if (result.success) return {};
+
+  const errors: FormErrors = {};
+
+  result.error.issues.forEach((issue) => {
+    const field = issue.path[0] as keyof FormErrors;
+
+    errors[field] = issue.message;
+  });
+
+  return errors;
+}
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
   });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleReset = () => {
+    setFormData({ name: "", email: "", message: "" });
+    setErrors({});
+    setSubmitted(false);
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
+    const validationErrors = validate(formData);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setLoading(true);
+    try {
+      const result = await submitContactForm(formData);
 
-  const inputClass =
-    "w-full px-3 bg-[#f7f7f7] border border-text-300 rounded-[6px] text-[16px] text-text-500 placeholder:text-text-400 outline-none focus:border-text-400 transition-colors";
+      if (!result.success && result.errors) {
+        setErrors(result.errors);
+        return;
+      }
+
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <section
-      id="contact"
-      className="bg-background-300 min-h-[841px] flex items-center"
-    >
-      <Container as="div" className="py-[100px] flex flex-col gap-[45px]">
+    <section id="contact" className="bg-background-300 flex items-center py-32">
+      <Container as="div" className="flex flex-col gap-11.25">
         {/* Header */}
         <div
-          className="flex flex-col gap-2.5 max-w-2xl"
+          className="flex flex-col gap-2.5"
           style={{
             textShadow:
               "0px 8px 8px rgba(112,113,116,0.04), 0px 20px 24px rgba(112,113,116,0.1)",
@@ -40,59 +86,64 @@ const ContactSection = () => {
         >
           <p className="text-body-lg-semibold text-text-500">Contacto</p>
           <h2 className="text-display-lg text-text-500">¡Hablanos!</h2>
-          <p
-            className="text-[20px] leading-[25px] text-text-500 mt-1"
-            style={{
-              fontFamily: "var(--font-montserrat), Montserrat, sans-serif",
-            }}
-          >
-            Tu visión merece un producto digital que esté a la altura de tu
-            ambición. Hablemos de cómo Shiro puede limpiar tu camino al éxito.
-          </p>
+          <div className="mt-1 text-text-500 text-regular">
+            <p className="leading-6.25">
+              Tu visión merece un producto digital que esté a la altura de tu
+              ambición.
+            </p>
+            <p className="leading-6.25">
+              Hablemos de cómo Shiro puede limpiar tu camino al éxito.
+            </p>
+          </div>
         </div>
 
-        {/* Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="flex flex-col gap-[21px] max-w-2xl"
-        >
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className={`${inputClass} h-12`}
-            placeholder="Nombre Completo"
-            aria-label="Nombre Completo"
-          />
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className={`${inputClass} h-12`}
-            placeholder="Email"
-            aria-label="Email"
-          />
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            rows={6}
-            className={`${inputClass} pt-[9px] resize-none`}
-            placeholder="¿Cómo podemos ayudarte?"
-            aria-label="Mensaje"
-          />
-          <button
-            type="submit"
-            className="bg-accent-main hover:bg-accent-selected transition-colors text-text-100 text-body-lg-semibold h-12 w-[280px] rounded-[6px] shadow-sm"
+        {submitted ? (
+          <div className="flex flex-col items-center gap-4 py-16 min-h-96">
+            <p className="text-body-lg-semibold text-text-500">
+              ¡En breve estaremos en contacto!
+            </p>
+            <p className="text-base text-text-400">
+              Nos pondremos en contacto a la brevedad.
+            </p>
+            <Button onClick={handleReset} type="button" variant="outline">
+              Enviar otra consulta
+            </Button>
+          </div>
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            className="flex flex-col gap-5.25 w-full"
           >
-            Enviar
-          </button>
-        </form>
+            <FormField
+              label="Nombre Completo"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              error={errors.name}
+            />
+            <FormField
+              label="Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              error={errors.email}
+            />
+            <FormField
+              label="¿Cómo podemos ayudarte?"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              error={errors.message}
+              rows={6}
+            />
+
+            <Button disabled={loading} type="submit">
+              {loading ? "Enviando..." : "Enviar"}
+            </Button>
+          </form>
+        )}
       </Container>
     </section>
   );

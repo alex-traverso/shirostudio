@@ -71,7 +71,6 @@ function ServiceItem({ title, content, isOpen, onToggle }: ServiceItemProps) {
           <h4
             className="text-body-md-bold leading-10 text-text-100 tracking-[-0.3px]"
             style={{
-              fontFamily: "var(--font-montserrat), Montserrat, sans-serif",
               textShadow:
                 "0px 8px 8px rgba(112,113,116,0.04), 0px 20px 24px rgba(112,113,116,0.1)",
             }}

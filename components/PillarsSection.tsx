@@ -31,19 +31,20 @@ const PillarsSection = () => {
             <div className="flex flex-col gap-2.5">
               <p className="text-body-lg-semibold text-text-500">Nosotros</p>
               <h2 className="text-display-lg text-text-500">
-                <span>Shiro significa </span>
-                <span>pureza y potencial </span>
-                <span>absoluto</span>
+                <p>Shiro significa </p>
+                <p>pureza y potencial </p>
+                <p>absoluto</p>
               </h2>
-              <p
-                className="text-[18px] leading-5 text-text-500 mt-1"
-                style={{
-                  fontFamily: "var(--font-montserrat), Montserrat, sans-serif",
-                }}
-              >
-                Creamos sistemas simples y sitios web de alto rendimiento para
-                ayudar a negocios en crecimiento a organizarse, automatizar
-                procesos y escalar sin complejidad.
+              <p className="text-[18px] leading-[5pt] text-text-500 mt-1">
+                Creamos sistemas simples y sitios web de alto rendimiento
+              </p>
+
+              <p className="text-[18px] leading-[5pt] text-text-500 mt-1">
+                para ayudar a negocios en crecimiento a organizarse,
+              </p>
+
+              <p className="text-[18px] leading-[5pt] text-text-500 mt-1">
+                automatizar procesos y escalar sin complejidad.
               </p>
             </div>
             <Button href="#contact">Toma el Control</Button>

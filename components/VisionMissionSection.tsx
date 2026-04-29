@@ -1,33 +1,35 @@
 import Container from "@/components/Container";
-
-const PHOTO_URL =
-  "https://www.figma.com/api/mcp/asset/2714e4bb-dcd8-48d0-83bc-b0d319014c40";
+import Image from "next/image";
+import mision from "@/public/mission/mision-vision.jpg";
 
 const VisionMissionSection = () => {
   return (
     <section
       id="vision"
-      className="bg-background-300 min-h-[873px] flex items-center overflow-hidden"
+      className="bg-background-300 min-h-218.25 flex items-center overflow-hidden"
     >
-      <Container
-        as="div"
-        className="flex gap-[116px] items-center justify-center"
-      >
+      <Container as="div" className="flex gap-29 items-center justify-center">
         {/* Rotated photo */}
-        <div className="relative shrink-0 flex items-center justify-center h-[562px] w-[360px]">
+        <div className="relative shrink-0 flex items-center justify-center h-140.5 w-90 group">
           <div className="-rotate-90 flex-none">
-            <div className="w-[562px] h-[360px] rounded-[20px] overflow-hidden">
-              <img
-                src={PHOTO_URL}
+            <div className="w-140.5 h-90 rounded-[20px] overflow-hidden">
+              <Image
+                src={mision}
                 alt="Shiro Studio"
-                className="w-full h-full object-cover"
+                height={500}
+                width={500}
+                className="
+          w-full h-full object-cover
+          transition-transform duration-200 ease-out
+          group-hover:scale-105
+        "
               />
             </div>
           </div>
         </div>
 
         {/* Content */}
-        <div className="flex flex-col gap-12 shrink-0">
+        <div className="flex flex-col gap-12 flex-1 min-w-0">
           <p
             className="text-body-lg-semibold text-text-500"
             style={{
@@ -37,11 +39,22 @@ const VisionMissionSection = () => {
           >
             Visión y Misión
           </p>
-          <div className="flex gap-24 items-start">
+
+          {/* grid-cols-2: columnas iguales → la línea usa medidas relativas al grid */}
+          <div className="grid grid-cols-2 gap-24 relative">
+            {/* Línea entre círculos:
+                top    = mitad del círculo (119px / 2 = 59.5px)
+                left   = borde derecho del círculo de Visión (119px)
+                right  = 50% del grid − mitad del gap (50% − 48px) → borde izquierdo de la col Misión */}
+            <div
+              className="absolute top-[59.5px] left-29.75 right-[calc(50%-48px)] h-0.5 bg-border-400"
+              aria-hidden="true"
+            />
+
             {/* Visión */}
-            <div className="flex flex-col gap-[74px]">
-              <div className="w-[119px] h-[119px] rounded-full bg-accent-main" />
-              <div className="flex flex-col gap-[17px]">
+            <div className="flex flex-col gap-18.5">
+              <div className="w-29.75 h-29.75 rounded-full bg-accent-main" />
+              <div className="flex flex-col gap-4.25">
                 <h3
                   className="text-display-lg text-text-500"
                   style={{
@@ -51,28 +64,17 @@ const VisionMissionSection = () => {
                 >
                   Visión
                 </h3>
-                <p
-                  className="text-[20px] leading-[30px] text-text-500 whitespace-nowrap"
-                  style={{
-                    fontFamily:
-                      "var(--font-montserrat), Montserrat, sans-serif",
-                  }}
-                >
-                  Ser el estándar de claridad en
-                  <br />
-                  la industria tecnológica, donde
-                  <br />
-                  la complejidad se rinde ante la
-                  <br />
-                  simplicidad inteligente.
+                <p className="text-[20px] leading-7.5 text-text-500">
+                  Ser el estándar de claridad en la industria tecnológica, donde
+                  la complejidad se rinde ante la simplicidad inteligente.
                 </p>
               </div>
             </div>
 
             {/* Misión */}
-            <div className="flex flex-col gap-[74px]">
-              <div className="w-[119px] h-[119px] rounded-full border-[3px] border-accent-main" />
-              <div className="flex flex-col gap-[17px]">
+            <div className="flex flex-col gap-18.5">
+              <div className="w-29.75 h-29.75 rounded-full border-8 border-accent-main" />
+              <div className="flex flex-col gap-4.25">
                 <h3
                   className="text-display-lg text-text-500"
                   style={{
@@ -82,13 +84,7 @@ const VisionMissionSection = () => {
                 >
                   Misión
                 </h3>
-                <p
-                  className="text-[20px] leading-[30px] text-text-500 max-w-[412px]"
-                  style={{
-                    fontFamily:
-                      "var(--font-montserrat), Montserrat, sans-serif",
-                  }}
-                >
+                <p className="text-[20px] leading-7.5 text-text-500">
                   Ayudar a las empresas en transición a digitalizar su
                   autoridad, transformando su estructura en un vehículo
                   imparable hacia la abundancia.

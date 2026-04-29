@@ -26,9 +26,9 @@
 
   /* Accent Color */
   --accent-color\/main-accent-color: #e84911;
-  --accent-color\/hover-accent-color: #ff5a1f; /* confirm in Figma desktop */
+  --accent-color\/hover-accent-color: #ff5a1f;
   --accent-color\/selected-accent-color: #c23d0e;
-  --accent-color\/disabled-accent-color: #ff9c7a; /* confirm in Figma desktop */
+  --accent-color\/disabled-accent-color: #ff9c7a;
 
   /* Semantic — Red / Danger */
   --semantic\/semantic-red-danger-100: #fff1f1;
@@ -277,6 +277,13 @@ body {
   font-family: var(--font-montserrat), "Montserrat", sans-serif;
   font-size: var(--font-size-xl);
   font-weight: 400;
+  line-height: var(--line-height-2xl);
+}
+
+.text-body-xl-semibold {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
   line-height: var(--line-height-2xl);
 }
 
