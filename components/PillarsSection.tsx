@@ -25,26 +25,18 @@ const PillarsSection = () => {
     <section id="us" className="py-32 w-full">
       <Container className="space-y-40">
         {/* TOP: text + logo */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-9">
+        <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between">
           {/* Text column */}
-          <div className="flex flex-col gap-9 max-w-180.5 text-center lg:text-left">
+          <div className="flex flex-col justify-between gap-9 text-center lg:text-left">
             <div className="flex flex-col gap-2.5">
               <p className="text-body-lg-semibold text-text-500">Nosotros</p>
-              <h2 className="text-display-lg text-text-500">
-                <p>Shiro significa </p>
-                <p>pureza y potencial </p>
-                <p>absoluto</p>
+              <h2 className="text-display-lg text-text-500 max-w-[16ch] sm:max-w-[18ch] lg:max-w-[20ch]">
+                Shiro significa pureza y potencial absoluto
               </h2>
-              <p className="text-[18px] leading-[5pt] text-text-500 mt-1">
-                Creamos sistemas simples y sitios web de alto rendimiento
-              </p>
-
-              <p className="text-[18px] leading-[5pt] text-text-500 mt-1">
-                para ayudar a negocios en crecimiento a organizarse,
-              </p>
-
-              <p className="text-[18px] leading-[5pt] text-text-500 mt-1">
-                automatizar procesos y escalar sin complejidad.
+              <p className="text-body-lg-regular leading-relaxed text-text-500 mt-1 max-w-[35ch] sm:max-w-[40ch] lg:max-w-[45ch]">
+                Creamos sistemas simples y sitios web de alto rendimiento para
+                ayudar a negocios en crecimiento a organizarse, automatizar
+                procesos y escalar sin complejidad.
               </p>
             </div>
             <Button href="#contact">Toma el Control</Button>

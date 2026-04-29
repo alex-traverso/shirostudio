@@ -10,18 +10,15 @@ const VisionMissionSection = () => {
     >
       <Container as="div" className="flex gap-29 items-center justify-center">
         {/* Rotated photo */}
-        <div className="relative shrink-0 flex items-center justify-center h-140.5 w-90 group">
+        <div className="relative shrink-0 flex items-center justify-center h-140 w-90 group">
           <div className="-rotate-90 flex-none">
-            <div className="w-140.5 h-90 rounded-[20px] overflow-hidden">
+            <div className="w-140 h-90 rounded-[20px] overflow-hidden">
               <Image
                 src={mision}
                 alt="Shiro Studio"
-                height={500}
-                width={500}
-                className="
-          w-full h-full object-cover
-          transition-transform duration-200 ease-out
-          group-hover:scale-105
+                height={300}
+                width={560}
+                className="w-full h-full object-cover transition-transform duration-200 ease-out group-hover:scale-105
         "
               />
             </div>
@@ -84,7 +81,7 @@ const VisionMissionSection = () => {
                 >
                   Misión
                 </h3>
-                <p className="text-[20px] leading-7.5 text-text-500">
+                <p className="text-[20px] max-w-[16ch] sm:max-w-[18ch] lg:max-w-[30ch] text-text-500">
                   Ayudar a las empresas en transición a digitalizar su
                   autoridad, transformando su estructura en un vehículo
                   imparable hacia la abundancia.
