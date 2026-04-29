@@ -1,9 +1,23 @@
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import ServicesSection from "@/components/ServicesSection";
+import VisionMissionSection from "@/components/VisionMissionSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+import PillarsSection from "@/components/PillarsSection";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-4xl font-bold">Welcome to the Home Page</h1>
-      <p className="mt-4 text-lg">This is the content of the home page.</p>
-    </div>
-  )
+    <>
+      <Navbar />
+      <main className="pt-20">
+        <HeroSection />
+        <PillarsSection />
+        <ServicesSection />
+        <VisionMissionSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </>
+  );
 }

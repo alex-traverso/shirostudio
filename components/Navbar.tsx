@@ -1,0 +1,95 @@
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import logo from "@/public/icons/logo.svg";
+
+import { RiInstagramFill } from "react-icons/ri";
+import { TbBrandLinkedinFilled } from "react-icons/tb";
+import { MdEmail } from "react-icons/md";
+
+const SOCIALS = [
+  {
+    name: "Instagram",
+    href: "https://instagram.com/tuusuario",
+    icon: RiInstagramFill,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/design-shiro-studio",
+    icon: TbBrandLinkedinFilled,
+  },
+  {
+    name: "Email",
+    href: "mailto:designshirostudio@gmail.com",
+    icon: MdEmail,
+  },
+];
+
+// TODO: buscar libreria de iconos para redes sociales
+// TODO: centrar iconos redes sociales
+export default function Navbar() {
+  return (
+    <header
+      id="navbar"
+      className="fixed top-0 right-0 w-full flex justify-center items-center z-50 bg-background-300"
+    >
+      <div className="h-20 w-full px-18.75 pt-13.75 pb-8 flex items-center justify-between">
+        {/* Logo + Social Icons */}
+        <div className="flex items-center gap-16">
+          <Link
+            href="#navbar"
+            className="flex flex-col leading-none select-none"
+          >
+            <Image src={logo} alt="Shiro Studio Logo" width={120} height={60} />
+          </Link>
+          <div className="flex items-center justify-center gap-3.5">
+            {SOCIALS.map((social) => {
+              const Icon = social.icon;
+
+              return (
+                <Link
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  className="text-text-500 hover:text-accent-main transition-colors"
+                >
+                  <Icon className="w-6 h-6" />
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Nav */}
+        <nav className="flex items-center gap-20">
+          <Link
+            href="#us"
+            className="text-body-lg-semibold text-text-500 hover:text-accent-main transition-colors"
+          >
+            Nosotros
+          </Link>
+          <Link
+            href="#services"
+            className="text-body-lg-semibold text-text-500 hover:text-accent-main transition-colors"
+          >
+            Servicios
+          </Link>
+          <Link
+            href="#vision"
+            className="text-body-lg-semibold text-text-500 hover:text-accent-main transition-colors"
+          >
+            Visión y Misión
+          </Link>
+          <Link
+            href="#contact"
+            className="text-body-lg-semibold text-text-500 hover:text-accent-main transition-colors"
+          >
+            Contacto
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
