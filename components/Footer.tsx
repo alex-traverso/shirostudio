@@ -41,8 +41,8 @@ const Footer = () => {
             <Image
               src={logoFooter}
               alt="Logo Shiro Studio"
-              height={30}
-              width={90}
+              height={40}
+              width={100}
             />
           </Link>
         </div>

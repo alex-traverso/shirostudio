@@ -26,7 +26,7 @@ export default function ContactEmail({ name, email, message }: EmailProps) {
           {/* Header */}
           <Section style={header}>
             <Img
-              src="https://shirostudio.co/logo.svg"
+              src="https://www.shirostudio.co/icons/logo-footer.svg"
               alt="Shiro Studio"
               width="100"
               height="31"
