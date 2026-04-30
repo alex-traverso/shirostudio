@@ -22,17 +22,21 @@ type AsButton = ButtonBaseProps & {
 type Props = AsLink | AsButton;
 
 const baseStyles =
-  "text-body-lg-semibold h-12 w-68 rounded-lg mx-auto lg:mx-0 flex items-center justify-center cursor-pointer transition-colors";
+  "text-body-lg-semibold h-12 w-68 rounded-lg  flex items-center justify-center cursor-pointer transition-colors";
 
 const variantStyles: Record<ButtonVariant, string> = {
-  filled:
-    "bg-accent-main hover:bg-accent-hover text-text-100 shadow-sm",
+  filled: "bg-accent-main hover:bg-accent-hover text-text-100 shadow-sm",
   outline:
     "border border-accent-main text-accent-main hover:bg-accent-main hover:text-text-100",
   link: "text-accent-main",
 };
 
-const Button = ({ children, className, variant = "filled", ...props }: Props) => {
+const Button = ({
+  children,
+  className,
+  variant = "filled",
+  ...props
+}: Props) => {
   const classes = `${baseStyles} ${variantStyles[variant]}${className ? ` ${className}` : ""}`;
 
   if ("href" in props && props.href) {

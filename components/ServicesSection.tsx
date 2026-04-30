@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Container from "@/components/Container";
 import ServiceItem from "./ServicesItem";
+import Subtitle from "./shared/Subtitle";
+import Title from "./shared/Title";
 
 const services = [
   {
@@ -66,8 +68,8 @@ const ServicesSection = () => {
               "0px 8px 8px rgba(112,113,116,0.04), 0px 20px 24px rgba(112,113,116,0.1)",
           }}
         >
-          <p className="text-body-lg-semibold text-text-100">¿Qué hacemos?</p>
-          <h2 className="text-display-lg text-text-100">Servicios</h2>
+          <Subtitle className="text-text-100">¿Qué hacemos?</Subtitle>
+          <Title className="text-text-100">Servicios</Title>
         </div>
         <div className="flex flex-col w-full border-b border-text-100/20">
           {services.map((service, index) => (

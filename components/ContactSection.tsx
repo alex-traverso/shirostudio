@@ -6,6 +6,8 @@ import FormField from "@/components/FormField";
 import { submitContactForm } from "@/app/actions/contact";
 import Button from "./shared/Button";
 import { contactSchema } from "@/app/lib/schemas/contact";
+import Subtitle from "./shared/Subtitle";
+import Title from "./shared/Title";
 
 type FormData = { name: string; email: string; message: string };
 type FormErrors = Partial<FormData>;
@@ -84,10 +86,11 @@ const ContactSection = () => {
               "0px 8px 8px rgba(112,113,116,0.04), 0px 20px 24px rgba(112,113,116,0.1)",
           }}
         >
-          <p className="text-body-lg-semibold text-text-500">Contacto</p>
-          <h2 className="text-display-lg text-text-500">¡Hablanos!</h2>
-          <div className="mt-1 text-text-500 text-regular">
-            <p className="leading-6.25">
+          <Subtitle className="text-text-500">Contacto</Subtitle>
+          <Title className="text-text-500">¡Hablanos!</Title>
+
+          <div className="mt-1 text-text-500 text-base lg:text-xl">
+            <p className=" leading-6.25">
               Tu visión merece un producto digital que esté a la altura de tu
               ambición.
             </p>

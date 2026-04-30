@@ -25,7 +25,7 @@ export default function ServiceItem({
         <div className="flex items-center gap-3">
           <div className="w-3.25 h-3.25 rounded-full bg-accent-main shrink-0" />
           <h4
-            className="text-body-md-bold leading-10 text-text-100 tracking-[-0.3px]"
+            className="font-bold text-xl lg:text-2xl leading-10 text-text-100 tracking-[-0.3px]"
             style={{
               textShadow:
                 "0px 8px 8px rgba(112,113,116,0.04), 0px 20px 24px rgba(112,113,116,0.1)",
@@ -49,8 +49,8 @@ export default function ServiceItem({
           isOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="flex flex-col gap-4 pl-6.25">
-          <p className="text-text-300 text-[18px] leading-7">
+        <div className="flex flex-col gap-4  max-w-[80vw] lg:max-w-[50vw] pl-6.25">
+          <p className="text-text-300 text-base lg:text-[18px] leading-7">
             {content.description}
           </p>
           <ul className="flex flex-col gap-2">
@@ -58,9 +58,9 @@ export default function ServiceItem({
               content.items.map((item, i) => (
                 <li
                   key={i}
-                  className="flex items-center gap-2 text-text-300 text-font-size-xl leading-7"
+                  className="flex items-start lg:items-center gap-x-2 text-text-300 text-font-size-xl leading-7"
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-background-200 shrink-0" />
+                  <div className="w-1.5 h-1.5 mt-2 lg:mt-0 rounded-full bg-background-200 shrink-0" />
                   {item}
                 </li>
               ))}

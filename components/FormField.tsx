@@ -6,7 +6,9 @@ type FormFieldProps = {
   label: string;
   name: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
   error?: string;
   type?: "text" | "email";
   rows?: number;
