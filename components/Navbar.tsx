@@ -56,9 +56,8 @@ export default function Navbar() {
       className={clsx(
         "fixed top-0 right-0 w-full z-50",
         scrolled
-          ? "lg:shadow-md bg-background-300"
-          : // bg-background-300/80 backdrop-blur-md"
-            "bg-background-300",
+          ? "lg:shadow-md bg-background-300/80 backdrop-blur-md"
+          : "bg-background-300",
       )}
     >
       <div className="w-full  md:px-10 pt-5 lg:px-18.75 lg:pt-13.75 lg:pb-8 flex h-auto items-center justify-between">
