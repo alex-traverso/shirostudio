@@ -3,6 +3,8 @@ import Image from "next/image";
 import logoIWCircles from "@/public/logo-i-circles.svg";
 import Button from "./shared/Button";
 import PilarCard from "./PillarCard";
+import Title from "./shared/Title";
+import Subtitle from "./shared/Subtitle";
 
 const pillars = [
   {
@@ -22,18 +24,18 @@ const pillars = [
 
 const PillarsSection = () => {
   return (
-    <section id="us" className="py-32 w-full">
-      <Container className="space-y-40">
+    <section id="us" className="py-8 lg:py-32 w-full">
+      <Container className="space-y-28 lg:space-y-40">
         {/* TOP: text + logo */}
-        <div className="flex flex-col lg:flex-row items-center lg:items-stretch justify-between">
+        <div className="flex flex-col md:flex-row items-center lg:items-stretch justify-between">
           {/* Text column */}
-          <div className="flex flex-col justify-between gap-9 text-center lg:text-left">
+          <div className="flex flex-col items-start lg:justify-between gap-9 lg:text-left">
             <div className="flex flex-col gap-2.5">
-              <p className="text-body-lg-semibold text-text-500">Nosotros</p>
-              <h2 className="text-display-lg text-text-500 max-w-[16ch] sm:max-w-[18ch] lg:max-w-[20ch]">
+              <Subtitle className="text-text-500">Nosotros</Subtitle>
+              <Title className="text-text-500 max-w-[16ch] md:max-w-[20ch] lg:max-w-[20ch]">
                 Shiro significa pureza y potencial absoluto
-              </h2>
-              <p className="text-body-lg-regular leading-relaxed text-text-500 mt-1 max-w-[35ch] sm:max-w-[40ch] lg:max-w-[45ch]">
+              </Title>
+              <p className="text-sm md:text-md lg:text-lg leading-relaxed text-text-500 mt-1 max-w-[30ch] md:max-w-[32ch] lg:max-w-[45ch]">
                 Creamos sistemas simples y sitios web de alto rendimiento para
                 ayudar a negocios en crecimiento a organizarse, automatizar
                 procesos y escalar sin complejidad.
@@ -43,20 +45,20 @@ const PillarsSection = () => {
           </div>
 
           {/* Logo */}
-          <Image
-            src={logoIWCircles}
-            alt="Shiro Studio"
-            width={485}
-            height={350}
-          />
+          <div className="w-3xs lg:w-[485px] h-auto">
+            <Image
+              src={logoIWCircles}
+              alt="Shiro Studio"
+              width={485}
+              height={350}
+            />
+          </div>
         </div>
 
         {/* PILLARS */}
         <div className="flex flex-col gap-16 items-center">
-          <h2 className="text-display-lg text-text-500 text-center">
-            Los tres pilares
-          </h2>
-          <div className="flex gap-10 items-center justify-center flex-wrap">
+          <Title>Los tres pilares</Title>
+          <div className="flex gap-5 lg:gap-10 items-center justify-center flex-wrap">
             {pillars.map((pillar) => (
               <PilarCard key={pillar.title} {...pillar} />
             ))}
