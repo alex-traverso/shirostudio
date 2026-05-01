@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 import ServiceItem from "./ServicesItem";
 import Subtitle from "./shared/Subtitle";
 import Title from "./shared/Title";
+import FadeInSection from "./shared/FadeInSection";
 
 const services = [
   {
@@ -59,29 +60,37 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="bg-background-100 py-37.5">
-      <Container className="flex flex-col gap-16">
-        <div
-          className="flex flex-col gap-2.5"
-          style={{
-            textShadow:
-              "0px 8px 8px rgba(112,113,116,0.04), 0px 20px 24px rgba(112,113,116,0.1)",
-          }}
-        >
-          <Subtitle className="text-text-100">¿Qué hacemos?</Subtitle>
-          <Title className="text-text-100">Servicios</Title>
-        </div>
-        <div className="flex flex-col w-full border-b border-text-100/20">
-          {services.map((service, index) => (
-            <ServiceItem
-              key={service.title}
-              title={service.title}
-              content={service.content}
-              isOpen={openIndex === index}
-              onToggle={() => handleToggle(index)}
-            />
-          ))}
-        </div>
+    <section
+      id="services"
+      className="bg-background-100 py-14 md:py-24 lg:py-37.5"
+    >
+      <Container className="flex flex-col gap-10 md:gap-16">
+        <FadeInSection>
+          <div
+            className="flex flex-col gap-2.5"
+            style={{
+              textShadow:
+                "0px 8px 8px rgba(112,113,116,0.04), 0px 20px 24px rgba(112,113,116,0.1)",
+            }}
+          >
+            <Subtitle className="text-text-100">¿Qué hacemos?</Subtitle>
+            <Title className="text-text-100">Servicios</Title>
+          </div>
+        </FadeInSection>
+
+        <FadeInSection>
+          <div className="flex flex-col w-full border-b border-text-100/20">
+            {services.map((service, index) => (
+              <ServiceItem
+                key={service.title}
+                title={service.title}
+                content={service.content}
+                isOpen={openIndex === index}
+                onToggle={() => handleToggle(index)}
+              />
+            ))}
+          </div>
+        </FadeInSection>
       </Container>
     </section>
   );

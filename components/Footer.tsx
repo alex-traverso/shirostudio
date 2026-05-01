@@ -6,6 +6,7 @@ import { RiInstagramFill } from "react-icons/ri";
 import { TbBrandLinkedinFilled } from "react-icons/tb";
 import { MdEmail } from "react-icons/md";
 import { FooterShape } from "./FooterShape";
+import FadeInSection from "./shared/FadeInSection";
 
 const SOCIALS = [
   {
@@ -40,53 +41,57 @@ const Footer = () => {
         {/* contenido */}
         <Container as="div" className="flex flex-col items-center gap-16 pb-0">
           {/* Logo + Nav */}
-          <div className="flex flex-col items-center gap-6">
-            <Link href="#navbar">
-              <Image
-                src={logoFooter}
-                alt="Logo Shiro Studio"
-                height={31}
-                width={100}
-              />
-            </Link>
+          <FadeInSection>
+            <div className="flex flex-col items-center gap-6">
+              <Link href="#navbar">
+                <Image
+                  src={logoFooter}
+                  alt="Logo Shiro Studio"
+                  height={31}
+                  width={100}
+                />
+              </Link>
 
-            <nav className="flex flex-col items-center gap-2.5">
-              {navLinks.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="text-body-lg-semibold text-text-100 hover:text-accent-main transition-colors"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
-          </div>
+              <nav className="flex flex-col items-center gap-2.5">
+                {navLinks.map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="text-base font-semibold leading-5 text-text-100 hover:text-accent-main transition-colors"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          </FadeInSection>
 
           {/* Socials + Copyright */}
-          <div className="flex flex-col items-center gap-3.75">
-            <div className="flex items-center gap-3.5">
-              {SOCIALS.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <Link
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.name}
-                    className="text-text-100 hover:text-accent-main transition-colors"
-                  >
-                    <Icon className="w-6 h-6" />
-                  </Link>
-                );
-              })}
-            </div>
+          <FadeInSection>
+            <div className="flex flex-col items-center gap-3.75">
+              <div className="flex items-center gap-3.5">
+                {SOCIALS.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <Link
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.name}
+                      className="text-text-100 hover:text-accent-main transition-colors"
+                    >
+                      <Icon className="w-6 h-6" />
+                    </Link>
+                  );
+                })}
+              </div>
 
-            <p className="text-body-sm-medium text-text-100 text-center">
-              Shiro Studio © All rights reserved
-            </p>
-          </div>
+              <p className="text-body-sm-medium text-text-100 text-center">
+                Shiro Studio © All rights reserved
+              </p>
+            </div>
+          </FadeInSection>
         </Container>
       </footer>
     </div>

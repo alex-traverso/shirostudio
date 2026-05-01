@@ -252,13 +252,6 @@ body {
    ================================================================ */
 
 /* --- Display --- */
-/* .text-display-hero {
-  font-family: var(--font-rokkitt), "Rokkitt", serif;
-  font-size: 80px;
-  font-weight: 700;
-  line-height: 1.16;
-  text-transform: uppercase;
-} */
 
 /* --- Display headings --- */
 
@@ -453,7 +446,6 @@ body {
   font-family: var(--font-rokkitt), serif;
   font-weight: 700;
   text-transform: uppercase;
-
   font-size: 40px;
   line-height: 1.2;
 

@@ -8,6 +8,7 @@ import Button from "./shared/Button";
 import { contactSchema } from "@/app/lib/schemas/contact";
 import Subtitle from "./shared/Subtitle";
 import Title from "./shared/Title";
+import FadeInSection from "./shared/FadeInSection";
 
 type FormData = { name: string; email: string; message: string };
 type FormErrors = Partial<FormData>;
@@ -76,9 +77,13 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="bg-background-300 flex items-center py-32">
+    <section
+      id="contact"
+      className="bg-background-300 flex items-center py-20 lg:py-32"
+    >
       <Container as="div" className="flex flex-col gap-11.25">
         {/* Header */}
+
         <div
           className="flex flex-col gap-2.5"
           style={{
@@ -86,66 +91,68 @@ const ContactSection = () => {
               "0px 8px 8px rgba(112,113,116,0.04), 0px 20px 24px rgba(112,113,116,0.1)",
           }}
         >
-          <Subtitle className="text-text-500">Contacto</Subtitle>
-          <Title className="text-text-500">¡Hablanos!</Title>
-
-          <div className="mt-1 text-text-500 text-base lg:text-xl">
-            <p className=" leading-6.25">
-              Tu visión merece un producto digital que esté a la altura de tu
-              ambición.
-            </p>
-            <p className="leading-6.25">
-              Hablemos de cómo Shiro puede limpiar tu camino al éxito.
-            </p>
-          </div>
+          <FadeInSection>
+            <Subtitle className="text-text-500">Contacto</Subtitle>
+            <Title className="text-text-500">¡Hablanos!</Title>
+          </FadeInSection>
+          <FadeInSection>
+            <div className="mt-1 text-text-500 text-base lg:text-xl">
+              <p className="text-base leading-6.25">
+                Tu visión merece un producto digital que esté a la altura de tu
+                ambición.
+              </p>
+              <p className="text-base leading-6.25">
+                Hablemos de cómo Shiro puede limpiar tu camino al éxito.
+              </p>
+            </div>
+          </FadeInSection>
         </div>
 
         {submitted ? (
           <div className="flex flex-col items-center gap-4 py-16 min-h-96">
-            <p className="text-body-lg-semibold text-text-500">
+            <p className="text-xl font-semibold text-text-500">
               ¡En breve estaremos en contacto!
-            </p>
-            <p className="text-base text-text-400">
-              Nos pondremos en contacto a la brevedad.
             </p>
             <Button onClick={handleReset} type="button" variant="outline">
               Enviar otra consulta
             </Button>
           </div>
         ) : (
-          <form
-            onSubmit={handleSubmit}
-            noValidate
-            className="flex flex-col gap-5.25 w-full"
-          >
-            <FormField
-              label="Nombre Completo"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              error={errors.name}
-            />
-            <FormField
-              label="Email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              error={errors.email}
-            />
-            <FormField
-              label="¿Cómo podemos ayudarte?"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              error={errors.message}
-              rows={6}
-            />
+          <FadeInSection>
+            <form
+              onSubmit={handleSubmit}
+              noValidate
+              className="flex flex-col gap-5.25 w-full"
+            >
+              <FormField
+                label="Nombre Completo"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                error={errors.name}
+              />
+              <FormField
+                label="Email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                error={errors.email}
+              />
+              <FormField
+                label="¿Cómo podemos ayudarte?"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                error={errors.message}
+                rows={6}
+              />
 
-            <Button disabled={loading} type="submit">
-              {loading ? "Enviando..." : "Enviar"}
-            </Button>
-          </form>
+              <Button disabled={loading} type="submit">
+                {loading ? "Enviando..." : "Enviar"}
+              </Button>
+            </form>
+          </FadeInSection>
         )}
       </Container>
     </section>
