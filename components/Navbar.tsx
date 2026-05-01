@@ -2,12 +2,13 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import clsx from "clsx";
 import logo from "@/public/icons/logo.svg";
 import { RiInstagramFill } from "react-icons/ri";
 import { TbBrandLinkedinFilled } from "react-icons/tb";
 import { MdEmail } from "react-icons/md";
 import { HiMenu, HiX } from "react-icons/hi";
-import clsx from "clsx";
+import { motion } from "framer-motion";
 
 const SOCIALS = [
   { name: "Instagram", href: "#", icon: RiInstagramFill },
@@ -52,7 +53,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className={clsx(
         "fixed top-0 left-0 w-full z-50 overflow-x-hidden",
         scrolled
@@ -146,6 +150,6 @@ export default function Navbar() {
           ))}
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }
