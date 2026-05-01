@@ -59,8 +59,11 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="bg-background-100 py-37.5">
-      <Container className="flex flex-col gap-16">
+    <section
+      id="services"
+      className="bg-background-100 py-14 md:py-24 lg:py-37.5"
+    >
+      <Container className="flex flex-col gap-10 md:gap-16">
         <div
           className="flex flex-col gap-2.5"
           style={{

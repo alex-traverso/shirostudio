@@ -55,7 +55,7 @@ const Footer = () => {
                 <Link
                   key={href}
                   href={href}
-                  className="text-body-lg-semibold text-text-100 hover:text-accent-main transition-colors"
+                  className="text-base font-semibold leading-5 text-text-100 hover:text-accent-main transition-colors"
                 >
                   {label}
                 </Link>

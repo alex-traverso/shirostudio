@@ -76,7 +76,10 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="bg-background-300 flex items-center py-32">
+    <section
+      id="contact"
+      className="bg-background-300 flex items-center py-20 lg:py-32"
+    >
       <Container as="div" className="flex flex-col gap-11.25">
         {/* Header */}
         <div
@@ -90,11 +93,11 @@ const ContactSection = () => {
           <Title className="text-text-500">¡Hablanos!</Title>
 
           <div className="mt-1 text-text-500 text-base lg:text-xl">
-            <p className=" leading-6.25">
+            <p className="text-base leading-6.25">
               Tu visión merece un producto digital que esté a la altura de tu
               ambición.
             </p>
-            <p className="leading-6.25">
+            <p className="text-base leading-6.25">
               Hablemos de cómo Shiro puede limpiar tu camino al éxito.
             </p>
           </div>
@@ -102,11 +105,8 @@ const ContactSection = () => {
 
         {submitted ? (
           <div className="flex flex-col items-center gap-4 py-16 min-h-96">
-            <p className="text-body-lg-semibold text-text-500">
+            <p className="text-xl font-semibold text-text-500">
               ¡En breve estaremos en contacto!
-            </p>
-            <p className="text-base text-text-400">
-              Nos pondremos en contacto a la brevedad.
             </p>
             <Button onClick={handleReset} type="button" variant="outline">
               Enviar otra consulta
