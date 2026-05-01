@@ -60,7 +60,7 @@ const PillarsSection = () => {
 
         {/* PILLARS */}
         <FadeInSection>
-          <div className="flex flex-col gap-7 md:gap-16 items-center">
+          <div className="flex flex-col gap-7 md:gap-7 lg:gap-16 items-center">
             <Title className="uppercase">Los tres pilares</Title>
             <div className="flex gap-5 lg:gap-10 items-center justify-center flex-wrap">
               {pillars.map((pillar) => (
