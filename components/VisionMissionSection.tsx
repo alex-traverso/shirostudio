@@ -15,8 +15,8 @@ const VisionMissionSection = () => {
         className="flex flex-col gap-10 md:flex-row md:gap-16.75 md:items-start md:justify-center lg:gap-29 lg:items-center"
       >
         {/* Mobile image — landscape, full-width, no rotation */}
-        <FadeInSection>
-          <div className="md:hidden w-full h-64 rounded-5xl overflow-hidden">
+        <div className="md:hidden w-full h-64 rounded-5xl overflow-hidden">
+          <FadeInSection>
             <Image
               src={mision}
               alt="Shiro Studio"
@@ -24,12 +24,12 @@ const VisionMissionSection = () => {
               width={560}
               className="w-full h-full object-cover"
             />
-          </div>
-        </FadeInSection>
+          </FadeInSection>
+        </div>
 
         {/* Tablet/Desktop image — rotated portrait, sticky on tablet */}
-        <FadeInSection>
-          <div className="hidden md:sticky md:top-(--navbar-height) md:self-start lg:static md:overflow-hidden md:shrink-0 md:flex md:items-center md:justify-center md:h-97.5 md:w-62.5 lg:h-140 lg:w-90 group">
+        <div className="hidden md:sticky md:top-(--navbar-height) md:self-start lg:static md:overflow-hidden md:shrink-0 md:flex md:items-center md:justify-center md:h-97.5 md:w-62.5 lg:h-140 lg:w-90 group">
+          <FadeInSection>
             <div className="-rotate-90 flex-none">
               <div className="md:w-97.5 md:h-62.5 lg:w-140 lg:h-90 rounded-[20px] overflow-hidden">
                 <Image
@@ -41,8 +41,8 @@ const VisionMissionSection = () => {
                 />
               </div>
             </div>
-          </div>
-        </FadeInSection>
+          </FadeInSection>
+        </div>
 
         {/* Content */}
         <div className="flex flex-col gap-6 md:flex-1 md:min-w-0 lg:gap-12">

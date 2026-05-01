@@ -28,7 +28,7 @@ const Container = ({
   return (
     // container-ds
     <Element
-      className={`px-8 md:px-8 lg:px-[75px] ml-auto mr-auto w-full max-w-325 ${className}`.trim()}
+      className={`px-10 md:px-14 lg:px-[75px] ml-auto mr-auto w-full max-w-325 ${className}`.trim()}
     >
       {children}
     </Element>
