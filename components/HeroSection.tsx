@@ -18,7 +18,7 @@ const HeroSection = () => {
           className="flex flex-col items-center justify-center text-center gap-12"
         >
           <h1
-            className="font-rokkitt uppercase font-bold text-2xl md:text-3xl lg:text-7xl text-text-500"
+            className="font-rokkitt uppercase font-bold text-2xl md:text-3xl lg:text-[55px] text-text-500"
             style={{
               textShadow:
                 "0px 8px 8px rgba(112,113,116,0.04), 0px 20px 24px rgba(112,113,116,0.1)",

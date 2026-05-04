@@ -1,8 +1,9 @@
 // app/layout.tsx
 import type { Metadata } from "next";
 import { Montserrat, Rokkitt } from "next/font/google";
-import IntroAnimation from "@/components/IntroAnimation";
 import "@/app/globals.css";
+import IntroAnimation from "@/components/IntroAnimation";
+import favicon from "@/public/favicon.svg";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -19,6 +20,11 @@ export const metadata: Metadata = {
   title: "Shiro Studio - Transformando Complejidad en Claridad",
   description:
     "Soluciones digitales claras, enfocadas y de alto impacto para tu negocio.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 // TODO: Add IntroAnimation back in once it's ready.

@@ -50,7 +50,7 @@ export default function ServiceItem({
         }`}
       >
         <div className="flex flex-col gap-4 max-w-[80vw] lg:max-w-[50vw] pl-6.25">
-          <p className="text-text-300 text-base lg:text-[18px] leading-7">
+          <p className="text-text-300 text-base lg:text-base leading-7 max-w-[55ch]">
             {content.description}
           </p>
           <ul className="flex flex-col gap-2">
