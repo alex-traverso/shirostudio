@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Container from "./Container";
 import logoFooter from "@/public/icons/logo-footer.svg";
@@ -7,6 +8,7 @@ import { TbBrandLinkedinFilled } from "react-icons/tb";
 import { MdEmail } from "react-icons/md";
 import { FooterShape } from "./FooterShape";
 import FadeInSection from "./shared/FadeInSection";
+import { motion } from "framer-motion";
 
 const SOCIALS = [
   {
@@ -67,31 +69,39 @@ const Footer = () => {
           </FadeInSection>
 
           {/* Socials + Copyright */}
-          <FadeInSection>
-            <div className="flex flex-col items-center gap-3.75">
-              <div className="flex items-center gap-3.5">
-                {SOCIALS.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <Link
-                      key={social.name}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.name}
-                      className="text-text-100 hover:text-accent-main transition-colors"
-                    >
-                      <Icon className="w-6 h-6" />
-                    </Link>
-                  );
-                })}
-              </div>
 
-              <p className="text-body-sm-medium text-text-100 text-center">
-                Shiro Studio © All rights reserved
-              </p>
+          <motion.div
+            className="flex flex-col items-center gap-3.75"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
+            <div className="flex items-center gap-3.5">
+              {SOCIALS.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <Link
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className="text-text-100 hover:text-accent-main transition-colors"
+                  >
+                    <Icon className="w-6 h-6" />
+                  </Link>
+                );
+              })}
             </div>
-          </FadeInSection>
+
+            <p className="text-body-sm-medium text-text-100 text-center">
+              Shiro Studio © All rights reserved
+            </p>
+          </motion.div>
         </Container>
       </footer>
     </div>

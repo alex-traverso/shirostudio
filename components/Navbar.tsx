@@ -65,7 +65,7 @@ export default function Navbar() {
       )}
     >
       {/* container-ds */}
-      <div className="w-full px-8 md:px-8 lg:px-18.75 pt-5 lg:pt-13.75 lg:pb-8 flex h-auto items-center justify-between">
+      <div className="w-full px-8 md:px-8 lg:px-18.75 pt-5 lg:py-8 flex h-auto items-center justify-between">
         {/* LEFT */}
         <div className="flex items-center gap-0 lg:gap-16">
           <Link href="#navbar">

@@ -79,7 +79,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="bg-background-300 flex items-center py-20 lg:py-32"
+      className="bg-background-300 flex items-center pb-20 lg:pt-0 lg:pb-32"
     >
       <Container as="div" className="flex flex-col gap-11.25">
         {/* Header */}

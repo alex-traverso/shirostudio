@@ -37,7 +37,7 @@ const PillarsSection = () => {
                 <Title className="text-text-500 max-w-[16ch] md:max-w-[20ch] lg:max-w-[20ch]">
                   Shiro significa pureza y potencial absoluto
                 </Title>
-                <p className="text-sm md:text-md lg:text-lg leading-relaxed text-text-500 mt-1 max-w-[30ch] md:max-w-[32ch] lg:max-w-[45ch]">
+                <p className="text-sm md:text-md lg:text-base leading-relaxed text-text-500 mt-1 max-w-[30ch] md:max-w-[32ch] lg:max-w-[45ch]">
                   Creamos sistemas simples y sitios web de alto rendimiento para
                   ayudar a negocios en crecimiento a organizarse, automatizar
                   procesos y escalar sin complejidad.
@@ -47,7 +47,7 @@ const PillarsSection = () => {
             </div>
 
             {/* Logo */}
-            <div className="w-3xs lg:w-121.25 h-auto">
+            <div className="w-3xs lg:w-96.5 h-auto">
               <Image
                 src={logoIWCircles}
                 alt="Shiro Studio"
