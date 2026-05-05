@@ -96,11 +96,11 @@ const ContactSection = () => {
           </FadeInSection>
           <FadeInSection>
             <div className="mt-1 text-text-500 text-base lg:text-xl">
-              <p className="text-base leading-6.25">
+              <p className="text-sm md:text-md lg:text-base leading-relaxed">
                 Tu visión merece un producto digital que esté a la altura de tu
                 ambición.
               </p>
-              <p className="text-base leading-6.25">
+              <p className="text-sm md:text-md lg:text-base leading-relaxed">
                 Hablemos de cómo Shiro puede limpiar tu camino al éxito.
               </p>
             </div>
