@@ -25,7 +25,7 @@ const pillars = [
 
 const PillarsSection = () => {
   return (
-    <section id="us" className="py-20 lg:py-32 w-full">
+    <section id="us" className="scroll-mt-20 py-20 lg:py-32 w-full">
       <Container className="space-y-28 lg:space-y-40">
         {/* TOP: text + logo */}
         <FadeInSection>
@@ -34,7 +34,7 @@ const PillarsSection = () => {
             <div className="w-full md:w-auto flex flex-col items-start lg:justify-between gap-9 lg:text-left">
               <div className="flex flex-col gap-2.5">
                 <Subtitle className="text-text-500">Nosotros</Subtitle>
-                <Title className="text-text-500 max-w-[16ch] md:max-w-[20ch] lg:max-w-[20ch]">
+                <Title className="text-text-500 max-w-[20ch] md:max-w-[20ch] lg:max-w-[20ch]">
                   Shiro significa pureza y potencial absoluto
                 </Title>
                 <p className="text-sm md:text-md lg:text-base leading-relaxed text-text-500 mt-1 max-w-[30ch] md:max-w-[32ch] lg:max-w-[45ch]">

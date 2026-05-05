@@ -9,7 +9,7 @@ const VisionMissionSection = () => {
   return (
     <section
       id="vision"
-      className="bg-background-300 py-20 lg:py-37.5 lg:overflow-hidden lg:flex lg:items-center"
+      className="scroll-mt-20 bg-background-300 py-20 lg:py-37.5 lg:overflow-hidden lg:flex lg:items-center"
     >
       <Container
         as="div"

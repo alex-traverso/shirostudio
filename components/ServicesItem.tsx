@@ -46,7 +46,7 @@ export default function ServiceItem({
       {/* Toggle Content */}
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
+          isOpen ? "max-h-auto opacity-100 mt-4" : "max-h-0 opacity-0"
         }`}
       >
         <div className="flex flex-col gap-4 max-w-[80vw] lg:max-w-[50vw] pl-6.25">
