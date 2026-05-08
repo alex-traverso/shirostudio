@@ -1,10 +1,16 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-const ELLIPSE_PATH =
+// const ELLIPSE_PATH =
+//   "M-400 0 H2320 C2320 200 2000 1150 960 1150 C-80 1150 -400 200 -400 0 Z";
+
+const DESKTOP_ELLIPSE_PATH =
   "M-400 0 H2320 C2320 200 2000 1150 960 1150 C-80 1150 -400 200 -400 0 Z";
+
+const MOBILE_TABLET_ELLIPSE_PATH = `
+M-700 0 H2620 C2620 180 2350 1220 960 1220 C-430 1220 -700 180 -700 0 Z`;
 
 const LETTER_I_PATH =
   "M0.230957 403.937V351.313H48.0087V52.8754H0.230957V0.250763H168.491V52.8754H120.714V351.313H168.491V403.937H0.230957Z";
@@ -22,6 +28,25 @@ export default function IntroAnimation({ children }: IntroAnimationProps) {
   const letterIRef = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
 
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+
+  // const isMobileOrTablet =
+  //   typeof window !== "undefined" && window.innerWidth < 1280;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileOrTablet(window.innerWidth < 1280);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     const introEl = introRef.current;
     const wrapEl = wrapRef.current;
@@ -30,7 +55,7 @@ export default function IntroAnimation({ children }: IntroAnimationProps) {
 
     if (!introEl || !wrapEl || !iEl || !dotEl) return;
 
-    gsap.set(wrapEl, { scale: 0, transformOrigin: "top left" });
+    // gsap.set(wrapEl, { scale: 0, transformOrigin: "top left" });
     gsap.set(iEl, { opacity: 0, y: "-110vh" });
     gsap.set(dotEl, { opacity: 0, y: "-130vh" });
 
@@ -95,23 +120,54 @@ export default function IntroAnimation({ children }: IntroAnimationProps) {
           overflow: "hidden",
         }}
       >
+        <style>{`
+          .intro-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+          }
+          .intro-svg {
+            display: block;
+            width: 100%;
+            height: auto;
+          }
+          @media (max-width: 1279px) {
+            .intro-wrap {
+              height: 82vh;
+            }
+            .intro-svg {
+            width: 185%;
+            height: 100%;
+            margin-left: -42.5%;
+          }
+          }
+        `}</style>
+
         <div
           ref={wrapRef}
+          className="intro-wrap"
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
+            transform: "scale(0)",
+            transformOrigin: "top left",
           }}
         >
           {/* Ellipse SVG */}
           <svg
-            viewBox="-400 0 2720 1150"
-            preserveAspectRatio="xMidYMid meet"
+            className="intro-svg"
+            viewBox={isMobileOrTablet ? "-700 0 3320 1220" : "-400 0 2720 1150"}
+            preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
-            style={{ display: "block", width: "100%", height: "auto" }}
           >
-            <path d={ELLIPSE_PATH} fill="#212121" />
+            <path
+              // d={ELLIPSE_PATH}
+              d={
+                isMobileOrTablet
+                  ? MOBILE_TABLET_ELLIPSE_PATH
+                  : DESKTOP_ELLIPSE_PATH
+              }
+              fill="#212121"
+            />
           </svg>
 
           {/* Logo */}
@@ -126,13 +182,15 @@ export default function IntroAnimation({ children }: IntroAnimationProps) {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "flex-end",
-              paddingBottom: "5%",
+              paddingBottom: isMobileOrTablet ? "12%" : "5%",
             }}
           >
             <div
               ref={dotRef}
               style={{
-                width: "clamp(32px, 7.13vw, 137px)",
+                width: isMobileOrTablet
+                  ? "clamp(48px, 12vw, 137px)"
+                  : "clamp(32px, 7.13vw, 137px)",
                 flexShrink: 0,
                 willChange: "transform, opacity",
                 marginBottom: "clamp(3px, 0.4vw, 8px)",
@@ -150,7 +208,9 @@ export default function IntroAnimation({ children }: IntroAnimationProps) {
             <div
               ref={letterIRef}
               style={{
-                width: "clamp(40px, 8.75vw, 168px)",
+                width: isMobileOrTablet
+                  ? "clamp(60px, 14vw, 168px)"
+                  : "clamp(40px, 8.75vw, 168px)",
                 flexShrink: 0,
                 willChange: "transform, opacity",
               }}
