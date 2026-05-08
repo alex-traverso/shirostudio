@@ -27,7 +27,6 @@ export const metadata: Metadata = {
   },
 };
 
-// TODO: Add IntroAnimation back in once it's ready.
 export default function RootLayout({
   children,
 }: {
@@ -35,15 +34,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={`${montserrat.variable} ${rokkitt.variable}`}>
-      <body>
+      <body suppressHydrationWarning>
         {/*
          * IntroAnimation wraps the entire app via children.
          * The intro overlay sits on top (position: fixed, z-index: 50).
          * Once it animates off screen, the children (page.tsx, etc.) are visible.
          * You don't need to touch IntroAnimation when editing page content.
          */}
-        {children}
-        {/* <IntroAnimation>{children}</IntroAnimation> */}
+        {/* {children} */}
+        <IntroAnimation>{children}</IntroAnimation>
       </body>
     </html>
   );
